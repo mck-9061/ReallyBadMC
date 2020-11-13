@@ -16,15 +16,17 @@ public class NauseaOnTooMuch implements Listener {
     public void onEat(PlayerItemConsumeEvent event) {
         if (Main.justEaten.contains(event.getPlayer())) {
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 1000000, 1));
-            event.getPlayer().sendMessage(ChatColor.RED + "You were warned.");
+            event.getPlayer().sendMessage(ChatColor.RED + "(You were warned.)");
+            Bukkit.broadcastMessage(ChatColor.RED + event.getPlayer().getName() + " ate too much and is now nauseous.");
+
         } else {
             Main.justEaten.add(event.getPlayer());
-            event.getPlayer().sendMessage(ChatColor.RED + "Do not eat for another 60 seconds.");
+            event.getPlayer().sendMessage(ChatColor.RED + "(Do not eat for another 60 seconds.)");
             new BukkitRunnable() {
                 @Override
                 public void run() {
                     Main.justEaten.remove(event.getPlayer());
-                    event.getPlayer().sendMessage(ChatColor.GREEN + "You can eat again!");
+                    event.getPlayer().sendMessage(ChatColor.GREEN + "(You can eat again!)");
                 }
             }.runTaskLaterAsynchronously(Main.instance, 1200);
         }
