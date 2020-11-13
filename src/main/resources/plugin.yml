@@ -1,0 +1,9 @@
+name: BadMC
+version: 1.0
+author: MCK
+api-version: 1.13
+main: me.therealmck.BadMC.Main
+commands:
+  getenchant:
+    description: 'aaaaaaaAAAAAAAA'
+    usage: '/getenchant'
