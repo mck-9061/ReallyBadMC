@@ -1,5 +1,6 @@
 package me.therealmck.BadMC.BadIdeas;
 
+import me.therealmck.BadMC.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
@@ -26,10 +27,12 @@ public class EndPortalChecks implements Listener {
                 event.getPlayer().setHealth(0);
                 event.getPlayer().sendMessage(ChatColor.RED + "(You need jump boost to do that. Obviously.)");
                 Bukkit.broadcastMessage(ChatColor.RED + event.getPlayer().getName() + " entered the End without Jump Boost.");
-
+            } else if (!Main.justEatenGap.contains(event.getPlayer())) {
+                event.setCancelled(true);
+                event.getPlayer().setHealth(0);
+                event.getPlayer().sendMessage(ChatColor.RED + "(You need to eat an Enchanted Golden Apple to do that. Obviously.)");
+                Bukkit.broadcastMessage(ChatColor.RED + event.getPlayer().getName() + " entered the End without a God Apple.");
             }
-
-            // TODO: Check the player has eaten an Enchanted Golden Apple
 
         }
     }
