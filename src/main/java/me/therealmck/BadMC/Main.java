@@ -1,6 +1,18 @@
 package me.therealmck.BadMC;
 
+import me.therealmck.BadMC.BadIdeas.BeaconRules.CancelVanillaBeaconCrafting;
 import me.therealmck.BadMC.BadIdeas.BeaconRules.NetheriteBeacons;
+import me.therealmck.BadMC.BadIdeas.DamageRules.EnderDragonTeleport;
+import me.therealmck.BadMC.BadIdeas.EndPortalChecks;
+import me.therealmck.BadMC.BadIdeas.FoodRules.DoubleHunger;
+import me.therealmck.BadMC.BadIdeas.FoodRules.GoldenAppleWither;
+import me.therealmck.BadMC.BadIdeas.FoodRules.NauseaOnTooMuch;
+import me.therealmck.BadMC.BadIdeas.FoodRules.PortalGapple;
+import me.therealmck.BadMC.BadIdeas.MobSpawningRules.PhantomMitosis;
+import me.therealmck.BadMC.BadIdeas.MobSpawningRules.RemoveRabbits;
+import me.therealmck.BadMC.BadIdeas.MobSpawningRules.SpiderEffectsAndJockey;
+import me.therealmck.BadMC.BadIdeas.PetRules.NoPetSitting;
+import me.therealmck.BadMC.BadIdeas.PetRules.UnTame;
 import me.therealmck.BadMC.Enchants.Armor.*;
 import me.therealmck.BadMC.Enchants.BookEnchantAddListener;
 import me.therealmck.BadMC.Enchants.GetCommand;
@@ -37,20 +49,32 @@ public class Main extends JavaPlugin {
         getServer().addRecipe(recipe);
 
 
-        EnchantmentRegisterer.registerEnchants();
+//        EnchantmentRegisterer.registerEnchants();
 
-        getServer().getPluginManager().registerEvents(new BookEnchantAddListener(), this);
+//        getServer().getPluginManager().registerEvents(new BookEnchantAddListener(), this);
 
-        getServer().getPluginManager().registerEvents(new Petals(), this);
-        getServer().getPluginManager().registerEvents(new Vulnerability(), this);
-        getServer().getPluginManager().registerEvents(new BlastVulnerability(), this);
-        getServer().getPluginManager().registerEvents(new FireVulnerability(), this);
-        getServer().getPluginManager().registerEvents(new ProjVulnerability(), this);
-        getServer().getPluginManager().registerEvents(new StoneTouch(), this);
+//        getServer().getPluginManager().registerEvents(new Petals(), this);
+//        getServer().getPluginManager().registerEvents(new Vulnerability(), this);
+//        getServer().getPluginManager().registerEvents(new BlastVulnerability(), this);
+//        getServer().getPluginManager().registerEvents(new FireVulnerability(), this);
+//        getServer().getPluginManager().registerEvents(new ProjVulnerability(), this);
+//        getServer().getPluginManager().registerEvents(new StoneTouch(), this);
 
 
         getServer().getPluginManager().registerEvents(new NetheriteBeacons(), this);
+        getServer().getPluginManager().registerEvents(new CancelVanillaBeaconCrafting(), this);
+        getServer().getPluginManager().registerEvents(new EnderDragonTeleport(), this);
+        getServer().getPluginManager().registerEvents(new DoubleHunger(), this);
+        getServer().getPluginManager().registerEvents(new GoldenAppleWither(), this);
+        getServer().getPluginManager().registerEvents(new NauseaOnTooMuch(), this);
+        getServer().getPluginManager().registerEvents(new PortalGapple(), this);
+        getServer().getPluginManager().registerEvents(new PhantomMitosis(), this);
+        getServer().getPluginManager().registerEvents(new RemoveRabbits(), this);
+        getServer().getPluginManager().registerEvents(new SpiderEffectsAndJockey(), this);
+        getServer().getPluginManager().registerEvents(new NoPetSitting(), this);
+        getServer().getPluginManager().registerEvents(new UnTame(), this);
+        getServer().getPluginManager().registerEvents(new EndPortalChecks(), this);
 
-        this.getCommand("getenchant").setExecutor(new GetCommand());
+//        this.getCommand("getenchant").setExecutor(new GetCommand());
     }
 }
